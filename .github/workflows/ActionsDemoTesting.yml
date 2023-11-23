@@ -1,0 +1,16 @@
+name: Github Actions Demo
+run-name: ${{ github.actor }} is testing
+on: [push]
+jobs:
+  MyDemoAction:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Random variable printing
+        run: echo "This job is triggered by ${{ github.event_name }} event, running on {{ runner.os }} server, branch name is "${{ github.ref }}" and repository name is ${{ github.repository }}"
+      - name: List repository files
+        run: |
+          ls ${{ github.workspace }}
+      - name: Check Job Status
+        run: echo "Job's status is ${{ job.status }}"
+        
+      
