@@ -6,3 +6,6 @@ jobs:
   mycontainertestjob:
     runs-on: ubuntu-latest
     container: node:18
+    steps:
+      - name: Check for dockerenv file
+        run: (ls /.dockerenv && echo Found dockerenv) || (echo No dockerenv)
