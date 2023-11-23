@@ -1,0 +1,13 @@
+name: ShellScripting
+
+on: [push]
+
+jobs:
+  thisisshellcommandjob:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Display Path
+      shell: python
+      run: |
+        import os
+        print(os.environ['PATH'])
