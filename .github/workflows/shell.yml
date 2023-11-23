@@ -11,3 +11,5 @@ jobs:
       run: |
         import os
         print(os.environ['PATH'])
+    - name: Test Environ
+      run: echo ${{ secrets.github_token }}
