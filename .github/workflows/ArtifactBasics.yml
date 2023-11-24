@@ -1,0 +1,15 @@
+name: Basic Artifact Tests
+
+on: [push]
+
+jobs:
+  firstjob:
+    name: Upload an artifact file
+    runs-on: ubuntu-latest
+    steps:
+    - name: Upload Step
+    - run: echo "Hello all, excited to read this!" > myfirstartifactfile.txt
+    - uses: actions/upload-artifact@v3
+      with:
+        name: cgartifact
+        path: myfirstartifactfile.txt
