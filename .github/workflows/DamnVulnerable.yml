@@ -5,9 +5,13 @@ on:
     types: [opened, edited]
 
 jobs:
-  check:
+  parse-pr-body:
+    name: Parse PR Body
     runs-on: ubuntu-latest
     steps:
-      - name: Check PR title
+      - name: Parse ENV_DATA
         run: |
-          title="${{ github.event.pull_request.title }}"
+          PR_BODY='${{ github.event.pull_request.body }}'
+          ENV_DATA=$(echo "${PR_BODY}"| sed -nre 's/^.*ENV_DATA=(\S+).*$/\1/p')
+          ENV_DATA=${ENV_DATA:-Dev}
+          echo "ENV_DATA=${ENV_DATA}">>${GITHUB_ENV}
