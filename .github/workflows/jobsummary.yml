@@ -1,0 +1,9 @@
+name: Step Summary
+on: push
+
+jobs:
+  dump_contexts_to_log:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Step Summary
+        run: echo "### Hello world! :rocket:" >> $GITHUB_STEP_SUMMARY
